@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset=UTF-8>
+    <title>IBAN test example</title>
+</head>
+
+<body>
+    <br>
+    <input type="text" name="ibaninput" id="ibaninput">
+    <input type="button" value="Check IBAN now" id="start_button" onclick="checkIbanNow()"><br><br>
+    <h1 id="status">Ready for IBAN.</h1>
+
+    <script type="text/javascript" src="ibanjs.js"></script>
+
+    <script>
+        function checkIbanNow() {
+
+            let iban2check = document.getElementById("ibaninput").value;
+            checkResult = ibanjs.validateIBAN(iban2check);
+            if (checkResult.valid == true) {
+                document.getElementById("status").innerHTML = ("IBAN OK");
+            }
+            else {
+                document.getElementById("status").innerHTML = ("Not a valid IBAN");
+            }
+        }
+    </script>
+</body>
+
+</html>
